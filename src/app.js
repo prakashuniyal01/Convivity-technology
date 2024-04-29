@@ -30,12 +30,13 @@ app.use(cors(
  
 
 //  userRouters 
-
 const {userRouter} = require('./routes/user.routes')
+const {appRouter} = require('./routes')
  
 
 
 app.use("/api/v1/user", userRouter)
+app.use('/api', appRouter )  // http://localhost:8080/api/v1/task
 
 
 /**
