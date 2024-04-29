@@ -105,11 +105,11 @@ copy all .env.exmpale file  and paste .env file
 #### current user
 
 ```http
-    post http://localhost:8080/api/v1/user/current-user
+    get http://localhost:8080/api/v1/user/current-user
 ```
 #### updatev account
 ```http
-    post http://localhost:8080/api/v1/user/update-account
+    patch http://localhost:8080/api/v1/user/update-account
 ```
 
 ### note 
