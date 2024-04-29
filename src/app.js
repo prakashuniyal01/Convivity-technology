@@ -29,10 +29,13 @@ app.use(cors(
  app.use(cookieParser())
  
 
-//  routers 
+//  userRouters 
 
-const router = require('./routes/user.routes')
+const {userRouter} = require('./routes/user.routes')
  
+
+
+app.use("/api/v1/user", userRouter)
 
 
 /**

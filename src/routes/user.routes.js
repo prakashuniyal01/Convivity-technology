@@ -1,13 +1,19 @@
 const {Router } = require('express')
-const {upload} = require("../middlewares/multer.middleware")
 const { verifyJWT } = require("../middlewares/auth.middleware")
-const {registerUser} = require('../controllers/user.controller')
+const {registerUser, loginUser,logoutUser, refreshAccessToken, changeCurrentPassword, updateAccountDetails, getCurrentUser } = require('../controllers/user.controller')
 
 
 
-const router = Router();
+const userRouter = Router();
 
 
-router.route("/register").post(registerUser)
+userRouter.route("/register").post(registerUser)
+userRouter.route("/login").post(loginUser)
+userRouter.route('/logout').post(verifyJWT, logoutUser)
+userRouter.route("/refresh-token").post(refreshAccessToken)
+userRouter.route("/change-Password").post(verifyJWT, changeCurrentPassword)
+userRouter.route("/current-user").get(verifyJWT, getCurrentUser)
+userRouter.route("/update-account").patch(verifyJWT, updateAccountDetails)
 
-module.exports = {router}
+
+module.exports = {userRouter}
